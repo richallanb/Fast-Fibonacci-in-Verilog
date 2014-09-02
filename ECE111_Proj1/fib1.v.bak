@@ -1,0 +1,51 @@
+module fibonacci_calculator (input_s, reset_n, begin_fibo, clk, done, fibo_out) ; 
+                         input  [4:0] input_s ; 
+                         input  reset_n ; 
+                         input  begin_fibo ; 
+                         input  clk ; 
+                         output done ; 
+                         output [15:0] fibo_out ;
+			reg q;
+			reg [15:0] f1; // F-1
+			reg [15:0] f2; // F-2
+			reg [4:0] count;
+			intitial begin
+				q = 0; // 1 points at f1, 0 points at f2;
+				f1 = 1;
+				f2 = 0;
+				count = 0;
+				done = 0;
+			end
+			
+			always @ (posedge clk or negedge reset_n)
+			begin
+				if (reset_n & ~begin_fibo)
+				begin
+					done = 0;
+					q = 0;
+					f1 = 1;
+					f2 = 0;
+					count = 0;
+				end
+				else if (~reset_n & begin_fibo)
+				begin
+					if (count == input_s)
+					begin
+						done = 1;
+						if (q)
+							fibo_out = f1;
+						else
+							fibo_out = f2;			
+					end
+					else
+					begin
+						if (q)
+							f1 <= f1 + f2;
+						else
+							f2 <= f1 + f2;
+						q <= ~q;
+						count <= count + 1;
+					end
+				end	
+			end
+endmodule

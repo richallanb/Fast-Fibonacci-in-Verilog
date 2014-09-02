@@ -1,0 +1,29 @@
+|fibonacci_calculator
+input_s[0] => Equal0.IN4
+input_s[1] => Equal0.IN3
+input_s[2] => Equal0.IN2
+input_s[3] => Equal0.IN1
+input_s[4] => Equal0.IN0
+reset_n => go.IN1
+begin_fibo => art_clk.IN0
+begin_fibo => go.IN0
+clk => art_clk.IN1
+done <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[0] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[1] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[2] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[3] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[4] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[5] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[6] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[7] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[8] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[9] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[10] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[11] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[12] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[13] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[14] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+fibo_out[15] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,213 @@
+Slow 900mV 100C Model report for fib1
+Wed Apr 16 22:39:28 2014
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Slow 900mV 100C Model Fmax Summary
+  3. Timing Closure Recommendations
+  4. Slow 900mV 100C Model Setup Summary
+  5. Slow 900mV 100C Model Hold Summary
+  6. Slow 900mV 100C Model Recovery Summary
+  7. Slow 900mV 100C Model Removal Summary
+  8. Slow 900mV 100C Model Minimum Pulse Width Summary
+  9. Setup Times
+ 10. Hold Times
+ 11. Clock to Output Times
+ 12. Minimum Clock to Output Times
+ 13. Propagation Delay
+ 14. Minimum Propagation Delay
+ 15. Slow 900mV 100C Model Metastability Report
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 900mV 100C Model Fmax Summary                                                                        ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 522.74 MHz ; 260.01 MHz      ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 900mV 100C Model Setup Summary ;
++-------+-------+---------------------+
+; Clock ; Slack ; End Point TNS       ;
++-------+-------+---------------------+
+; clk   ; 0.047 ; 0.000               ;
++-------+-------+---------------------+
+
+
++------------------------------------+
+; Slow 900mV 100C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.387 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 900mV 100C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 900mV 100C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 900mV 100C Model Minimum Pulse Width Summary ;
++---------+--------+--------------------------------+
+; Clock   ; Slack  ; End Point TNS                  ;
++---------+--------+--------------------------------+
+; clk     ; -1.886 ; -3.366                         ;
+; reset_n ; -1.886 ; -1.886                         ;
++---------+--------+--------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; input_s[*]  ; clk        ; 2.480 ; 2.583 ; Rise       ; clk             ;
+;  input_s[0] ; clk        ; 2.285 ; 2.383 ; Rise       ; clk             ;
+;  input_s[1] ; clk        ; 2.419 ; 2.507 ; Rise       ; clk             ;
+;  input_s[2] ; clk        ; 2.429 ; 2.526 ; Rise       ; clk             ;
+;  input_s[3] ; clk        ; 2.480 ; 2.570 ; Rise       ; clk             ;
+;  input_s[4] ; clk        ; 2.479 ; 2.583 ; Rise       ; clk             ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Hold Times                                                                ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; input_s[*]  ; clk        ; -0.811 ; -0.909 ; Rise       ; clk             ;
+;  input_s[0] ; clk        ; -0.811 ; -0.909 ; Rise       ; clk             ;
+;  input_s[1] ; clk        ; -0.921 ; -1.000 ; Rise       ; clk             ;
+;  input_s[2] ; clk        ; -0.945 ; -1.044 ; Rise       ; clk             ;
+;  input_s[3] ; clk        ; -1.046 ; -1.136 ; Rise       ; clk             ;
+;  input_s[4] ; clk        ; -1.028 ; -1.122 ; Rise       ; clk             ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Clock to Output Times                                                     ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; done          ; clk        ; 8.558 ; 8.505 ; Rise       ; clk             ;
+; fibo_out[*]   ; clk        ; 8.901 ; 8.894 ; Rise       ; clk             ;
+;  fibo_out[0]  ; clk        ; 8.401 ; 8.462 ; Rise       ; clk             ;
+;  fibo_out[1]  ; clk        ; 8.722 ; 8.796 ; Rise       ; clk             ;
+;  fibo_out[2]  ; clk        ; 8.374 ; 8.371 ; Rise       ; clk             ;
+;  fibo_out[3]  ; clk        ; 8.537 ; 8.539 ; Rise       ; clk             ;
+;  fibo_out[4]  ; clk        ; 8.718 ; 8.714 ; Rise       ; clk             ;
+;  fibo_out[5]  ; clk        ; 8.677 ; 8.655 ; Rise       ; clk             ;
+;  fibo_out[6]  ; clk        ; 8.728 ; 8.725 ; Rise       ; clk             ;
+;  fibo_out[7]  ; clk        ; 8.491 ; 8.489 ; Rise       ; clk             ;
+;  fibo_out[8]  ; clk        ; 8.627 ; 8.632 ; Rise       ; clk             ;
+;  fibo_out[9]  ; clk        ; 8.563 ; 8.566 ; Rise       ; clk             ;
+;  fibo_out[10] ; clk        ; 8.720 ; 8.716 ; Rise       ; clk             ;
+;  fibo_out[11] ; clk        ; 8.808 ; 8.779 ; Rise       ; clk             ;
+;  fibo_out[12] ; clk        ; 8.839 ; 8.842 ; Rise       ; clk             ;
+;  fibo_out[13] ; clk        ; 8.855 ; 8.843 ; Rise       ; clk             ;
+;  fibo_out[14] ; clk        ; 8.901 ; 8.894 ; Rise       ; clk             ;
+;  fibo_out[15] ; clk        ; 8.738 ; 8.715 ; Rise       ; clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                             ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; done          ; clk        ; 7.702 ; 7.716 ; Rise       ; clk             ;
+; fibo_out[*]   ; clk        ; 7.324 ; 7.320 ; Rise       ; clk             ;
+;  fibo_out[0]  ; clk        ; 7.702 ; 7.700 ; Rise       ; clk             ;
+;  fibo_out[1]  ; clk        ; 8.006 ; 7.986 ; Rise       ; clk             ;
+;  fibo_out[2]  ; clk        ; 7.570 ; 7.573 ; Rise       ; clk             ;
+;  fibo_out[3]  ; clk        ; 7.435 ; 7.436 ; Rise       ; clk             ;
+;  fibo_out[4]  ; clk        ; 7.916 ; 7.905 ; Rise       ; clk             ;
+;  fibo_out[5]  ; clk        ; 7.541 ; 7.519 ; Rise       ; clk             ;
+;  fibo_out[6]  ; clk        ; 7.600 ; 7.590 ; Rise       ; clk             ;
+;  fibo_out[7]  ; clk        ; 7.324 ; 7.320 ; Rise       ; clk             ;
+;  fibo_out[8]  ; clk        ; 7.478 ; 7.475 ; Rise       ; clk             ;
+;  fibo_out[9]  ; clk        ; 7.371 ; 7.373 ; Rise       ; clk             ;
+;  fibo_out[10] ; clk        ; 7.486 ; 7.474 ; Rise       ; clk             ;
+;  fibo_out[11] ; clk        ; 7.521 ; 7.493 ; Rise       ; clk             ;
+;  fibo_out[12] ; clk        ; 7.577 ; 7.572 ; Rise       ; clk             ;
+;  fibo_out[13] ; clk        ; 7.539 ; 7.526 ; Rise       ; clk             ;
+;  fibo_out[14] ; clk        ; 7.612 ; 7.598 ; Rise       ; clk             ;
+;  fibo_out[15] ; clk        ; 7.400 ; 7.377 ; Rise       ; clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------+
+; Propagation Delay                                        ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; input_s[0] ; done        ; 8.730 ; 8.710 ; 8.808 ; 8.808 ;
+; input_s[1] ; done        ; 8.898 ; 8.844 ; 8.954 ; 8.932 ;
+; input_s[2] ; done        ; 8.873 ; 8.854 ; 8.954 ; 8.951 ;
+; input_s[3] ; done        ; 8.622 ; 8.653 ; 8.692 ; 8.743 ;
+; input_s[4] ; done        ; 8.655 ; 8.652 ; 8.727 ; 8.756 ;
++------------+-------------+-------+-------+-------+-------+
+
+
++----------------------------------------------------------+
+; Minimum Propagation Delay                                ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; input_s[0] ; done        ; 8.266 ; 8.249 ; 8.346 ; 8.347 ;
+; input_s[1] ; done        ; 8.393 ; 8.359 ; 8.458 ; 8.438 ;
+; input_s[2] ; done        ; 8.399 ; 8.383 ; 8.484 ; 8.482 ;
+; input_s[3] ; done        ; 8.172 ; 8.203 ; 8.244 ; 8.293 ;
+; input_s[4] ; done        ; 8.171 ; 8.185 ; 8.251 ; 8.279 ;
++------------+-------------+-------+-------+-------+-------+
+
+
+----------------------------------------------
+; Slow 900mV 100C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+

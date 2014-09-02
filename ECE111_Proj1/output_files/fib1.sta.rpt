@@ -1,0 +1,997 @@
+TimeQuest Timing Analyzer report for fib1
+Wed Apr 16 22:39:11 2014
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Slow 900mV 100C Model Fmax Summary
+  7. Timing Closure Recommendations
+  8. Slow 900mV 100C Model Setup Summary
+  9. Slow 900mV 100C Model Hold Summary
+ 10. Slow 900mV 100C Model Recovery Summary
+ 11. Slow 900mV 100C Model Removal Summary
+ 12. Slow 900mV 100C Model Minimum Pulse Width Summary
+ 13. Setup Times
+ 14. Hold Times
+ 15. Clock to Output Times
+ 16. Minimum Clock to Output Times
+ 17. Propagation Delay
+ 18. Minimum Propagation Delay
+ 19. Slow 900mV 100C Model Metastability Report
+ 20. Slow 900mV -40C Model Fmax Summary
+ 21. Slow 900mV -40C Model Setup Summary
+ 22. Slow 900mV -40C Model Hold Summary
+ 23. Slow 900mV -40C Model Recovery Summary
+ 24. Slow 900mV -40C Model Removal Summary
+ 25. Slow 900mV -40C Model Minimum Pulse Width Summary
+ 26. Setup Times
+ 27. Hold Times
+ 28. Clock to Output Times
+ 29. Minimum Clock to Output Times
+ 30. Propagation Delay
+ 31. Minimum Propagation Delay
+ 32. Slow 900mV -40C Model Metastability Report
+ 33. Fast 900mV -40C Model Setup Summary
+ 34. Fast 900mV -40C Model Hold Summary
+ 35. Fast 900mV -40C Model Recovery Summary
+ 36. Fast 900mV -40C Model Removal Summary
+ 37. Fast 900mV -40C Model Minimum Pulse Width Summary
+ 38. Setup Times
+ 39. Hold Times
+ 40. Clock to Output Times
+ 41. Minimum Clock to Output Times
+ 42. Propagation Delay
+ 43. Minimum Propagation Delay
+ 44. Fast 900mV -40C Model Metastability Report
+ 45. Multicorner Timing Analysis Summary
+ 46. Setup Times
+ 47. Hold Times
+ 48. Clock to Output Times
+ 49. Minimum Clock to Output Times
+ 50. Propagation Delay
+ 51. Minimum Propagation Delay
+ 52. Board Trace Model Assignments
+ 53. Input Transition Times
+ 54. Signal Integrity Metrics (Slow 900mv n40c Model)
+ 55. Signal Integrity Metrics (Slow 900mv 100c Model)
+ 56. Signal Integrity Metrics (Fast 900mv n40c Model)
+ 57. Setup Transfers
+ 58. Hold Transfers
+ 59. Report TCCS
+ 60. Report RSKM
+ 61. Unconstrained Paths
+ 62. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name      ; fib1                                               ;
+; Device Family      ; Arria II GX                                        ;
+; Device Name        ; EP2AGX45DF29I5                                     ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Combined                                           ;
+; Rise/Fall Delays   ; Enabled                                            ;
++--------------------+----------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------+
+; SDC File List                                     ;
++---------------+--------+--------------------------+
+; SDC File Path ; Status ; Read at                  ;
++---------------+--------+--------------------------+
+; fib1.out.sdc  ; OK     ; Wed Apr 16 22:39:08 2014 ;
++---------------+--------+--------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                             ;
++------------+------+--------+-----------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; Clock Name ; Type ; Period ; Frequency ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets     ;
++------------+------+--------+-----------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; clk        ; Base ; 1.960  ; 510.2 MHz ; 0.000 ; 0.980 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }     ;
+; reset_n    ; Base ; 1.960  ; 510.2 MHz ; 0.000 ; 0.980 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { reset_n } ;
++------------+------+--------+-----------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 900mV 100C Model Fmax Summary                                                                        ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 522.74 MHz ; 260.01 MHz      ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 900mV 100C Model Setup Summary ;
++-------+-------+---------------------+
+; Clock ; Slack ; End Point TNS       ;
++-------+-------+---------------------+
+; clk   ; 0.047 ; 0.000               ;
++-------+-------+---------------------+
+
+
++------------------------------------+
+; Slow 900mV 100C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.387 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 900mV 100C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 900mV 100C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 900mV 100C Model Minimum Pulse Width Summary ;
++---------+--------+--------------------------------+
+; Clock   ; Slack  ; End Point TNS                  ;
++---------+--------+--------------------------------+
+; clk     ; -1.886 ; -3.366                         ;
+; reset_n ; -1.886 ; -1.886                         ;
++---------+--------+--------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; input_s[*]  ; clk        ; 2.480 ; 2.583 ; Rise       ; clk             ;
+;  input_s[0] ; clk        ; 2.285 ; 2.383 ; Rise       ; clk             ;
+;  input_s[1] ; clk        ; 2.419 ; 2.507 ; Rise       ; clk             ;
+;  input_s[2] ; clk        ; 2.429 ; 2.526 ; Rise       ; clk             ;
+;  input_s[3] ; clk        ; 2.480 ; 2.570 ; Rise       ; clk             ;
+;  input_s[4] ; clk        ; 2.479 ; 2.583 ; Rise       ; clk             ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Hold Times                                                                ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; input_s[*]  ; clk        ; -0.811 ; -0.909 ; Rise       ; clk             ;
+;  input_s[0] ; clk        ; -0.811 ; -0.909 ; Rise       ; clk             ;
+;  input_s[1] ; clk        ; -0.921 ; -1.000 ; Rise       ; clk             ;
+;  input_s[2] ; clk        ; -0.945 ; -1.044 ; Rise       ; clk             ;
+;  input_s[3] ; clk        ; -1.046 ; -1.136 ; Rise       ; clk             ;
+;  input_s[4] ; clk        ; -1.028 ; -1.122 ; Rise       ; clk             ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Clock to Output Times                                                     ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; done          ; clk        ; 8.558 ; 8.505 ; Rise       ; clk             ;
+; fibo_out[*]   ; clk        ; 8.901 ; 8.894 ; Rise       ; clk             ;
+;  fibo_out[0]  ; clk        ; 8.401 ; 8.462 ; Rise       ; clk             ;
+;  fibo_out[1]  ; clk        ; 8.722 ; 8.796 ; Rise       ; clk             ;
+;  fibo_out[2]  ; clk        ; 8.374 ; 8.371 ; Rise       ; clk             ;
+;  fibo_out[3]  ; clk        ; 8.537 ; 8.539 ; Rise       ; clk             ;
+;  fibo_out[4]  ; clk        ; 8.718 ; 8.714 ; Rise       ; clk             ;
+;  fibo_out[5]  ; clk        ; 8.677 ; 8.655 ; Rise       ; clk             ;
+;  fibo_out[6]  ; clk        ; 8.728 ; 8.725 ; Rise       ; clk             ;
+;  fibo_out[7]  ; clk        ; 8.491 ; 8.489 ; Rise       ; clk             ;
+;  fibo_out[8]  ; clk        ; 8.627 ; 8.632 ; Rise       ; clk             ;
+;  fibo_out[9]  ; clk        ; 8.563 ; 8.566 ; Rise       ; clk             ;
+;  fibo_out[10] ; clk        ; 8.720 ; 8.716 ; Rise       ; clk             ;
+;  fibo_out[11] ; clk        ; 8.808 ; 8.779 ; Rise       ; clk             ;
+;  fibo_out[12] ; clk        ; 8.839 ; 8.842 ; Rise       ; clk             ;
+;  fibo_out[13] ; clk        ; 8.855 ; 8.843 ; Rise       ; clk             ;
+;  fibo_out[14] ; clk        ; 8.901 ; 8.894 ; Rise       ; clk             ;
+;  fibo_out[15] ; clk        ; 8.738 ; 8.715 ; Rise       ; clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                             ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; done          ; clk        ; 7.702 ; 7.716 ; Rise       ; clk             ;
+; fibo_out[*]   ; clk        ; 7.324 ; 7.320 ; Rise       ; clk             ;
+;  fibo_out[0]  ; clk        ; 7.702 ; 7.700 ; Rise       ; clk             ;
+;  fibo_out[1]  ; clk        ; 8.006 ; 7.986 ; Rise       ; clk             ;
+;  fibo_out[2]  ; clk        ; 7.570 ; 7.573 ; Rise       ; clk             ;
+;  fibo_out[3]  ; clk        ; 7.435 ; 7.436 ; Rise       ; clk             ;
+;  fibo_out[4]  ; clk        ; 7.916 ; 7.905 ; Rise       ; clk             ;
+;  fibo_out[5]  ; clk        ; 7.541 ; 7.519 ; Rise       ; clk             ;
+;  fibo_out[6]  ; clk        ; 7.600 ; 7.590 ; Rise       ; clk             ;
+;  fibo_out[7]  ; clk        ; 7.324 ; 7.320 ; Rise       ; clk             ;
+;  fibo_out[8]  ; clk        ; 7.478 ; 7.475 ; Rise       ; clk             ;
+;  fibo_out[9]  ; clk        ; 7.371 ; 7.373 ; Rise       ; clk             ;
+;  fibo_out[10] ; clk        ; 7.486 ; 7.474 ; Rise       ; clk             ;
+;  fibo_out[11] ; clk        ; 7.521 ; 7.493 ; Rise       ; clk             ;
+;  fibo_out[12] ; clk        ; 7.577 ; 7.572 ; Rise       ; clk             ;
+;  fibo_out[13] ; clk        ; 7.539 ; 7.526 ; Rise       ; clk             ;
+;  fibo_out[14] ; clk        ; 7.612 ; 7.598 ; Rise       ; clk             ;
+;  fibo_out[15] ; clk        ; 7.400 ; 7.377 ; Rise       ; clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------+
+; Propagation Delay                                        ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; input_s[0] ; done        ; 8.730 ; 8.710 ; 8.808 ; 8.808 ;
+; input_s[1] ; done        ; 8.898 ; 8.844 ; 8.954 ; 8.932 ;
+; input_s[2] ; done        ; 8.873 ; 8.854 ; 8.954 ; 8.951 ;
+; input_s[3] ; done        ; 8.622 ; 8.653 ; 8.692 ; 8.743 ;
+; input_s[4] ; done        ; 8.655 ; 8.652 ; 8.727 ; 8.756 ;
++------------+-------------+-------+-------+-------+-------+
+
+
++----------------------------------------------------------+
+; Minimum Propagation Delay                                ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; input_s[0] ; done        ; 8.266 ; 8.249 ; 8.346 ; 8.347 ;
+; input_s[1] ; done        ; 8.393 ; 8.359 ; 8.458 ; 8.438 ;
+; input_s[2] ; done        ; 8.399 ; 8.383 ; 8.484 ; 8.482 ;
+; input_s[3] ; done        ; 8.172 ; 8.203 ; 8.244 ; 8.293 ;
+; input_s[4] ; done        ; 8.171 ; 8.185 ; 8.251 ; 8.279 ;
++------------+-------------+-------+-------+-------+-------+
+
+
+----------------------------------------------
+; Slow 900mV 100C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++----------------------------------------------------------------------------------------------------------+
+; Slow 900mV -40C Model Fmax Summary                                                                       ;
++-----------+-----------------+------------+---------------------------------------------------------------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note                                                          ;
++-----------+-----------------+------------+---------------------------------------------------------------+
+; 510.2 MHz ; 260.01 MHz      ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++-----------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-------------------------------------+
+; Slow 900mV -40C Model Setup Summary ;
++-------+-------+---------------------+
+; Clock ; Slack ; End Point TNS       ;
++-------+-------+---------------------+
+; clk   ; 0.000 ; 0.000               ;
++-------+-------+---------------------+
+
+
++------------------------------------+
+; Slow 900mV -40C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.374 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 900mV -40C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 900mV -40C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 900mV -40C Model Minimum Pulse Width Summary ;
++---------+--------+--------------------------------+
+; Clock   ; Slack  ; End Point TNS                  ;
++---------+--------+--------------------------------+
+; clk     ; -1.886 ; -3.366                         ;
+; reset_n ; -1.886 ; -1.886                         ;
++---------+--------+--------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; input_s[*]  ; clk        ; 2.063 ; 2.063 ; Rise       ; clk             ;
+;  input_s[0] ; clk        ; 1.804 ; 1.813 ; Rise       ; clk             ;
+;  input_s[1] ; clk        ; 1.984 ; 1.965 ; Rise       ; clk             ;
+;  input_s[2] ; clk        ; 1.943 ; 1.943 ; Rise       ; clk             ;
+;  input_s[3] ; clk        ; 2.012 ; 2.032 ; Rise       ; clk             ;
+;  input_s[4] ; clk        ; 2.063 ; 2.063 ; Rise       ; clk             ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Hold Times                                                                ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; input_s[*]  ; clk        ; -0.360 ; -0.384 ; Rise       ; clk             ;
+;  input_s[0] ; clk        ; -0.360 ; -0.384 ; Rise       ; clk             ;
+;  input_s[1] ; clk        ; -0.482 ; -0.492 ; Rise       ; clk             ;
+;  input_s[2] ; clk        ; -0.488 ; -0.507 ; Rise       ; clk             ;
+;  input_s[3] ; clk        ; -0.637 ; -0.654 ; Rise       ; clk             ;
+;  input_s[4] ; clk        ; -0.639 ; -0.665 ; Rise       ; clk             ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Clock to Output Times                                                     ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; done          ; clk        ; 8.246 ; 8.107 ; Rise       ; clk             ;
+; fibo_out[*]   ; clk        ; 8.628 ; 8.581 ; Rise       ; clk             ;
+;  fibo_out[0]  ; clk        ; 8.093 ; 8.102 ; Rise       ; clk             ;
+;  fibo_out[1]  ; clk        ; 8.410 ; 8.451 ; Rise       ; clk             ;
+;  fibo_out[2]  ; clk        ; 8.079 ; 8.065 ; Rise       ; clk             ;
+;  fibo_out[3]  ; clk        ; 8.250 ; 8.228 ; Rise       ; clk             ;
+;  fibo_out[4]  ; clk        ; 8.419 ; 8.382 ; Rise       ; clk             ;
+;  fibo_out[5]  ; clk        ; 8.398 ; 8.343 ; Rise       ; clk             ;
+;  fibo_out[6]  ; clk        ; 8.447 ; 8.406 ; Rise       ; clk             ;
+;  fibo_out[7]  ; clk        ; 8.214 ; 8.199 ; Rise       ; clk             ;
+;  fibo_out[8]  ; clk        ; 8.342 ; 8.330 ; Rise       ; clk             ;
+;  fibo_out[9]  ; clk        ; 8.300 ; 8.278 ; Rise       ; clk             ;
+;  fibo_out[10] ; clk        ; 8.439 ; 8.418 ; Rise       ; clk             ;
+;  fibo_out[11] ; clk        ; 8.550 ; 8.487 ; Rise       ; clk             ;
+;  fibo_out[12] ; clk        ; 8.561 ; 8.536 ; Rise       ; clk             ;
+;  fibo_out[13] ; clk        ; 8.573 ; 8.543 ; Rise       ; clk             ;
+;  fibo_out[14] ; clk        ; 8.628 ; 8.581 ; Rise       ; clk             ;
+;  fibo_out[15] ; clk        ; 8.475 ; 8.429 ; Rise       ; clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                             ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; done          ; clk        ; 7.381 ; 7.355 ; Rise       ; clk             ;
+; fibo_out[*]   ; clk        ; 7.057 ; 7.030 ; Rise       ; clk             ;
+;  fibo_out[0]  ; clk        ; 7.384 ; 7.342 ; Rise       ; clk             ;
+;  fibo_out[1]  ; clk        ; 7.726 ; 7.649 ; Rise       ; clk             ;
+;  fibo_out[2]  ; clk        ; 7.305 ; 7.278 ; Rise       ; clk             ;
+;  fibo_out[3]  ; clk        ; 7.174 ; 7.139 ; Rise       ; clk             ;
+;  fibo_out[4]  ; clk        ; 7.641 ; 7.581 ; Rise       ; clk             ;
+;  fibo_out[5]  ; clk        ; 7.287 ; 7.222 ; Rise       ; clk             ;
+;  fibo_out[6]  ; clk        ; 7.334 ; 7.272 ; Rise       ; clk             ;
+;  fibo_out[7]  ; clk        ; 7.057 ; 7.030 ; Rise       ; clk             ;
+;  fibo_out[8]  ; clk        ; 7.207 ; 7.173 ; Rise       ; clk             ;
+;  fibo_out[9]  ; clk        ; 7.118 ; 7.084 ; Rise       ; clk             ;
+;  fibo_out[10] ; clk        ; 7.214 ; 7.172 ; Rise       ; clk             ;
+;  fibo_out[11] ; clk        ; 7.268 ; 7.196 ; Rise       ; clk             ;
+;  fibo_out[12] ; clk        ; 7.309 ; 7.262 ; Rise       ; clk             ;
+;  fibo_out[13] ; clk        ; 7.263 ; 7.222 ; Rise       ; clk             ;
+;  fibo_out[14] ; clk        ; 7.349 ; 7.282 ; Rise       ; clk             ;
+;  fibo_out[15] ; clk        ; 7.142 ; 7.086 ; Rise       ; clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------+
+; Propagation Delay                                        ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; input_s[0] ; done        ; 7.939 ; 7.855 ; 7.943 ; 7.881 ;
+; input_s[1] ; done        ; 8.119 ; 8.005 ; 8.100 ; 7.996 ;
+; input_s[2] ; done        ; 8.078 ; 7.992 ; 8.078 ; 8.011 ;
+; input_s[3] ; done        ; 7.823 ; 7.804 ; 7.821 ; 7.824 ;
+; input_s[4] ; done        ; 7.874 ; 7.825 ; 7.874 ; 7.835 ;
++------------+-------------+-------+-------+-------+-------+
+
+
++----------------------------------------------------------+
+; Minimum Propagation Delay                                ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; input_s[0] ; done        ; 7.562 ; 7.486 ; 7.567 ; 7.510 ;
+; input_s[1] ; done        ; 7.694 ; 7.608 ; 7.665 ; 7.618 ;
+; input_s[2] ; done        ; 7.692 ; 7.614 ; 7.693 ; 7.633 ;
+; input_s[3] ; done        ; 7.461 ; 7.446 ; 7.459 ; 7.463 ;
+; input_s[4] ; done        ; 7.473 ; 7.448 ; 7.460 ; 7.474 ;
++------------+-------------+-------+-------+-------+-------+
+
+
+----------------------------------------------
+; Slow 900mV -40C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++-------------------------------------+
+; Fast 900mV -40C Model Setup Summary ;
++-------+-------+---------------------+
+; Clock ; Slack ; End Point TNS       ;
++-------+-------+---------------------+
+; clk   ; 1.143 ; 0.000               ;
++-------+-------+---------------------+
+
+
++------------------------------------+
+; Fast 900mV -40C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.158 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Fast 900mV -40C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Fast 900mV -40C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Fast 900mV -40C Model Minimum Pulse Width Summary ;
++---------+--------+--------------------------------+
+; Clock   ; Slack  ; End Point TNS                  ;
++---------+--------+--------------------------------+
+; clk     ; -1.886 ; -10.050                        ;
+; reset_n ; -1.886 ; -1.886                         ;
++---------+--------+--------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; input_s[*]  ; clk        ; 1.208 ; 1.563 ; Rise       ; clk             ;
+;  input_s[0] ; clk        ; 1.091 ; 1.450 ; Rise       ; clk             ;
+;  input_s[1] ; clk        ; 1.171 ; 1.527 ; Rise       ; clk             ;
+;  input_s[2] ; clk        ; 1.164 ; 1.527 ; Rise       ; clk             ;
+;  input_s[3] ; clk        ; 1.191 ; 1.545 ; Rise       ; clk             ;
+;  input_s[4] ; clk        ; 1.208 ; 1.563 ; Rise       ; clk             ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Hold Times                                                                ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; input_s[*]  ; clk        ; -0.491 ; -0.849 ; Rise       ; clk             ;
+;  input_s[0] ; clk        ; -0.491 ; -0.849 ; Rise       ; clk             ;
+;  input_s[1] ; clk        ; -0.565 ; -0.908 ; Rise       ; clk             ;
+;  input_s[2] ; clk        ; -0.560 ; -0.923 ; Rise       ; clk             ;
+;  input_s[3] ; clk        ; -0.605 ; -0.959 ; Rise       ; clk             ;
+;  input_s[4] ; clk        ; -0.621 ; -0.962 ; Rise       ; clk             ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Clock to Output Times                                                     ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; done          ; clk        ; 4.263 ; 4.265 ; Rise       ; clk             ;
+; fibo_out[*]   ; clk        ; 4.466 ; 4.485 ; Rise       ; clk             ;
+;  fibo_out[0]  ; clk        ; 4.255 ; 4.281 ; Rise       ; clk             ;
+;  fibo_out[1]  ; clk        ; 4.409 ; 4.431 ; Rise       ; clk             ;
+;  fibo_out[2]  ; clk        ; 4.187 ; 4.192 ; Rise       ; clk             ;
+;  fibo_out[3]  ; clk        ; 4.266 ; 4.288 ; Rise       ; clk             ;
+;  fibo_out[4]  ; clk        ; 4.376 ; 4.400 ; Rise       ; clk             ;
+;  fibo_out[5]  ; clk        ; 4.328 ; 4.341 ; Rise       ; clk             ;
+;  fibo_out[6]  ; clk        ; 4.373 ; 4.396 ; Rise       ; clk             ;
+;  fibo_out[7]  ; clk        ; 4.246 ; 4.247 ; Rise       ; clk             ;
+;  fibo_out[8]  ; clk        ; 4.328 ; 4.336 ; Rise       ; clk             ;
+;  fibo_out[9]  ; clk        ; 4.287 ; 4.303 ; Rise       ; clk             ;
+;  fibo_out[10] ; clk        ; 4.372 ; 4.373 ; Rise       ; clk             ;
+;  fibo_out[11] ; clk        ; 4.389 ; 4.397 ; Rise       ; clk             ;
+;  fibo_out[12] ; clk        ; 4.426 ; 4.447 ; Rise       ; clk             ;
+;  fibo_out[13] ; clk        ; 4.455 ; 4.447 ; Rise       ; clk             ;
+;  fibo_out[14] ; clk        ; 4.466 ; 4.485 ; Rise       ; clk             ;
+;  fibo_out[15] ; clk        ; 4.335 ; 4.327 ; Rise       ; clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                             ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; done          ; clk        ; 3.900 ; 3.915 ; Rise       ; clk             ;
+; fibo_out[*]   ; clk        ; 3.721 ; 3.718 ; Rise       ; clk             ;
+;  fibo_out[0]  ; clk        ; 3.948 ; 3.946 ; Rise       ; clk             ;
+;  fibo_out[1]  ; clk        ; 4.076 ; 4.086 ; Rise       ; clk             ;
+;  fibo_out[2]  ; clk        ; 3.824 ; 3.823 ; Rise       ; clk             ;
+;  fibo_out[3]  ; clk        ; 3.777 ; 3.794 ; Rise       ; clk             ;
+;  fibo_out[4]  ; clk        ; 4.016 ; 4.031 ; Rise       ; clk             ;
+;  fibo_out[5]  ; clk        ; 3.823 ; 3.833 ; Rise       ; clk             ;
+;  fibo_out[6]  ; clk        ; 3.863 ; 3.875 ; Rise       ; clk             ;
+;  fibo_out[7]  ; clk        ; 3.721 ; 3.718 ; Rise       ; clk             ;
+;  fibo_out[8]  ; clk        ; 3.809 ; 3.806 ; Rise       ; clk             ;
+;  fibo_out[9]  ; clk        ; 3.751 ; 3.762 ; Rise       ; clk             ;
+;  fibo_out[10] ; clk        ; 3.815 ; 3.804 ; Rise       ; clk             ;
+;  fibo_out[11] ; clk        ; 3.812 ; 3.815 ; Rise       ; clk             ;
+;  fibo_out[12] ; clk        ; 3.856 ; 3.865 ; Rise       ; clk             ;
+;  fibo_out[13] ; clk        ; 3.862 ; 3.851 ; Rise       ; clk             ;
+;  fibo_out[14] ; clk        ; 3.884 ; 3.892 ; Rise       ; clk             ;
+;  fibo_out[15] ; clk        ; 3.734 ; 3.722 ; Rise       ; clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------+
+; Propagation Delay                                        ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; input_s[0] ; done        ; 4.462 ; 4.470 ; 4.809 ; 4.829 ;
+; input_s[1] ; done        ; 4.554 ; 4.550 ; 4.893 ; 4.906 ;
+; input_s[2] ; done        ; 4.532 ; 4.543 ; 4.888 ; 4.906 ;
+; input_s[3] ; done        ; 4.446 ; 4.464 ; 4.788 ; 4.818 ;
+; input_s[4] ; done        ; 4.475 ; 4.481 ; 4.813 ; 4.836 ;
++------------+-------------+-------+-------+-------+-------+
+
+
++----------------------------------------------------------+
+; Minimum Propagation Delay                                ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; input_s[0] ; done        ; 4.250 ; 4.256 ; 4.597 ; 4.614 ;
+; input_s[1] ; done        ; 4.327 ; 4.330 ; 4.668 ; 4.673 ;
+; input_s[2] ; done        ; 4.316 ; 4.325 ; 4.672 ; 4.688 ;
+; input_s[3] ; done        ; 4.239 ; 4.255 ; 4.582 ; 4.609 ;
+; input_s[4] ; done        ; 4.258 ; 4.271 ; 4.597 ; 4.612 ;
++------------+-------------+-------+-------+-------+-------+
+
+
+----------------------------------------------
+; Fast 900mV -40C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++-----------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                         ;
++------------------+-------+-------+----------+---------+---------------------+
+; Clock            ; Setup ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+-------+-------+----------+---------+---------------------+
+; Worst-case Slack ; 0.000 ; 0.158 ; N/A      ; N/A     ; -1.886              ;
+;  clk             ; 0.000 ; 0.158 ; N/A      ; N/A     ; -1.886              ;
+;  reset_n         ; N/A   ; N/A   ; N/A      ; N/A     ; -1.886              ;
+; Design-wide TNS  ; 0.0   ; 0.0   ; 0.0      ; 0.0     ; -11.936             ;
+;  clk             ; 0.000 ; 0.000 ; N/A      ; N/A     ; -10.050             ;
+;  reset_n         ; N/A   ; N/A   ; N/A      ; N/A     ; -1.886              ;
++------------------+-------+-------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; input_s[*]  ; clk        ; 2.480 ; 2.583 ; Rise       ; clk             ;
+;  input_s[0] ; clk        ; 2.285 ; 2.383 ; Rise       ; clk             ;
+;  input_s[1] ; clk        ; 2.419 ; 2.507 ; Rise       ; clk             ;
+;  input_s[2] ; clk        ; 2.429 ; 2.526 ; Rise       ; clk             ;
+;  input_s[3] ; clk        ; 2.480 ; 2.570 ; Rise       ; clk             ;
+;  input_s[4] ; clk        ; 2.479 ; 2.583 ; Rise       ; clk             ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Hold Times                                                                ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; input_s[*]  ; clk        ; -0.360 ; -0.384 ; Rise       ; clk             ;
+;  input_s[0] ; clk        ; -0.360 ; -0.384 ; Rise       ; clk             ;
+;  input_s[1] ; clk        ; -0.482 ; -0.492 ; Rise       ; clk             ;
+;  input_s[2] ; clk        ; -0.488 ; -0.507 ; Rise       ; clk             ;
+;  input_s[3] ; clk        ; -0.605 ; -0.654 ; Rise       ; clk             ;
+;  input_s[4] ; clk        ; -0.621 ; -0.665 ; Rise       ; clk             ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Clock to Output Times                                                     ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; done          ; clk        ; 8.558 ; 8.505 ; Rise       ; clk             ;
+; fibo_out[*]   ; clk        ; 8.901 ; 8.894 ; Rise       ; clk             ;
+;  fibo_out[0]  ; clk        ; 8.401 ; 8.462 ; Rise       ; clk             ;
+;  fibo_out[1]  ; clk        ; 8.722 ; 8.796 ; Rise       ; clk             ;
+;  fibo_out[2]  ; clk        ; 8.374 ; 8.371 ; Rise       ; clk             ;
+;  fibo_out[3]  ; clk        ; 8.537 ; 8.539 ; Rise       ; clk             ;
+;  fibo_out[4]  ; clk        ; 8.718 ; 8.714 ; Rise       ; clk             ;
+;  fibo_out[5]  ; clk        ; 8.677 ; 8.655 ; Rise       ; clk             ;
+;  fibo_out[6]  ; clk        ; 8.728 ; 8.725 ; Rise       ; clk             ;
+;  fibo_out[7]  ; clk        ; 8.491 ; 8.489 ; Rise       ; clk             ;
+;  fibo_out[8]  ; clk        ; 8.627 ; 8.632 ; Rise       ; clk             ;
+;  fibo_out[9]  ; clk        ; 8.563 ; 8.566 ; Rise       ; clk             ;
+;  fibo_out[10] ; clk        ; 8.720 ; 8.716 ; Rise       ; clk             ;
+;  fibo_out[11] ; clk        ; 8.808 ; 8.779 ; Rise       ; clk             ;
+;  fibo_out[12] ; clk        ; 8.839 ; 8.842 ; Rise       ; clk             ;
+;  fibo_out[13] ; clk        ; 8.855 ; 8.843 ; Rise       ; clk             ;
+;  fibo_out[14] ; clk        ; 8.901 ; 8.894 ; Rise       ; clk             ;
+;  fibo_out[15] ; clk        ; 8.738 ; 8.715 ; Rise       ; clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                             ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; done          ; clk        ; 3.900 ; 3.915 ; Rise       ; clk             ;
+; fibo_out[*]   ; clk        ; 3.721 ; 3.718 ; Rise       ; clk             ;
+;  fibo_out[0]  ; clk        ; 3.948 ; 3.946 ; Rise       ; clk             ;
+;  fibo_out[1]  ; clk        ; 4.076 ; 4.086 ; Rise       ; clk             ;
+;  fibo_out[2]  ; clk        ; 3.824 ; 3.823 ; Rise       ; clk             ;
+;  fibo_out[3]  ; clk        ; 3.777 ; 3.794 ; Rise       ; clk             ;
+;  fibo_out[4]  ; clk        ; 4.016 ; 4.031 ; Rise       ; clk             ;
+;  fibo_out[5]  ; clk        ; 3.823 ; 3.833 ; Rise       ; clk             ;
+;  fibo_out[6]  ; clk        ; 3.863 ; 3.875 ; Rise       ; clk             ;
+;  fibo_out[7]  ; clk        ; 3.721 ; 3.718 ; Rise       ; clk             ;
+;  fibo_out[8]  ; clk        ; 3.809 ; 3.806 ; Rise       ; clk             ;
+;  fibo_out[9]  ; clk        ; 3.751 ; 3.762 ; Rise       ; clk             ;
+;  fibo_out[10] ; clk        ; 3.815 ; 3.804 ; Rise       ; clk             ;
+;  fibo_out[11] ; clk        ; 3.812 ; 3.815 ; Rise       ; clk             ;
+;  fibo_out[12] ; clk        ; 3.856 ; 3.865 ; Rise       ; clk             ;
+;  fibo_out[13] ; clk        ; 3.862 ; 3.851 ; Rise       ; clk             ;
+;  fibo_out[14] ; clk        ; 3.884 ; 3.892 ; Rise       ; clk             ;
+;  fibo_out[15] ; clk        ; 3.734 ; 3.722 ; Rise       ; clk             ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------+
+; Propagation Delay                                        ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; input_s[0] ; done        ; 8.730 ; 8.710 ; 8.808 ; 8.808 ;
+; input_s[1] ; done        ; 8.898 ; 8.844 ; 8.954 ; 8.932 ;
+; input_s[2] ; done        ; 8.873 ; 8.854 ; 8.954 ; 8.951 ;
+; input_s[3] ; done        ; 8.622 ; 8.653 ; 8.692 ; 8.743 ;
+; input_s[4] ; done        ; 8.655 ; 8.652 ; 8.727 ; 8.756 ;
++------------+-------------+-------+-------+-------+-------+
+
+
++----------------------------------------------------------+
+; Minimum Propagation Delay                                ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; input_s[0] ; done        ; 4.250 ; 4.256 ; 4.597 ; 4.614 ;
+; input_s[1] ; done        ; 4.327 ; 4.330 ; 4.668 ; 4.673 ;
+; input_s[2] ; done        ; 4.316 ; 4.325 ; 4.672 ; 4.688 ;
+; input_s[3] ; done        ; 4.239 ; 4.255 ; 4.582 ; 4.609 ;
+; input_s[4] ; done        ; 4.258 ; 4.271 ; 4.597 ; 4.612 ;
++------------+-------------+-------+-------+-------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; done          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[0]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[1]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[2]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[3]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[4]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[5]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[6]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[7]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[8]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[9]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[10]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[11]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[12]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[13]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[14]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; fibo_out[15]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++---------------------------------------------------------------+
+; Input Transition Times                                        ;
++------------+--------------+-----------------+-----------------+
+; Pin        ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++------------+--------------+-----------------+-----------------+
+; input_s[0] ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; input_s[1] ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; input_s[2] ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; input_s[3] ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; input_s[4] ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; begin_fibo ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; clk        ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; reset_n    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 900mv n40c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; done          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.85e-08 V                   ; 2.31 V              ; -0.02 V             ; 0.158 V                              ; 0.194 V                              ; 6.14e-10 s                  ; 5.09e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.85e-08 V                  ; 2.31 V             ; -0.02 V            ; 0.158 V                             ; 0.194 V                             ; 6.14e-10 s                 ; 5.09e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[0]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.85e-08 V                   ; 2.31 V              ; -0.02 V             ; 0.158 V                              ; 0.194 V                              ; 6.14e-10 s                  ; 5.09e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.85e-08 V                  ; 2.31 V             ; -0.02 V            ; 0.158 V                             ; 0.194 V                             ; 6.14e-10 s                 ; 5.09e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[1]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.84e-08 V                   ; 2.31 V              ; -0.0211 V           ; 0.167 V                              ; 0.222 V                              ; 6.23e-10 s                  ; 5.31e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.84e-08 V                  ; 2.31 V             ; -0.0211 V          ; 0.167 V                             ; 0.222 V                             ; 6.23e-10 s                 ; 5.31e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[2]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.85e-08 V                   ; 2.31 V              ; -0.02 V             ; 0.158 V                              ; 0.194 V                              ; 6.14e-10 s                  ; 5.09e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.85e-08 V                  ; 2.31 V             ; -0.02 V            ; 0.158 V                             ; 0.194 V                             ; 6.14e-10 s                 ; 5.09e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[3]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.84e-08 V                   ; 2.31 V              ; -0.0211 V           ; 0.167 V                              ; 0.222 V                              ; 6.23e-10 s                  ; 5.31e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.84e-08 V                  ; 2.31 V             ; -0.0211 V          ; 0.167 V                             ; 0.222 V                             ; 6.23e-10 s                 ; 5.31e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[4]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.84e-08 V                   ; 2.31 V              ; -0.0211 V           ; 0.167 V                              ; 0.222 V                              ; 6.23e-10 s                  ; 5.31e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.84e-08 V                  ; 2.31 V             ; -0.0211 V          ; 0.167 V                             ; 0.222 V                             ; 6.23e-10 s                 ; 5.31e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[5]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.84e-08 V                   ; 2.31 V              ; -0.0211 V           ; 0.167 V                              ; 0.222 V                              ; 6.23e-10 s                  ; 5.31e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.84e-08 V                  ; 2.31 V             ; -0.0211 V          ; 0.167 V                             ; 0.222 V                             ; 6.23e-10 s                 ; 5.31e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[6]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.84e-08 V                   ; 2.31 V              ; -0.0211 V           ; 0.167 V                              ; 0.222 V                              ; 6.23e-10 s                  ; 5.31e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.84e-08 V                  ; 2.31 V             ; -0.0211 V          ; 0.167 V                             ; 0.222 V                             ; 6.23e-10 s                 ; 5.31e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[7]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.85e-08 V                   ; 2.31 V              ; -0.02 V             ; 0.158 V                              ; 0.194 V                              ; 6.14e-10 s                  ; 5.09e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.85e-08 V                  ; 2.31 V             ; -0.02 V            ; 0.158 V                             ; 0.194 V                             ; 6.14e-10 s                 ; 5.09e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[8]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.85e-08 V                   ; 2.31 V              ; -0.02 V             ; 0.158 V                              ; 0.194 V                              ; 6.14e-10 s                  ; 5.09e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.85e-08 V                  ; 2.31 V             ; -0.02 V            ; 0.158 V                             ; 0.194 V                             ; 6.14e-10 s                 ; 5.09e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[9]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.84e-08 V                   ; 2.31 V              ; -0.0211 V           ; 0.167 V                              ; 0.222 V                              ; 6.23e-10 s                  ; 5.31e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.84e-08 V                  ; 2.31 V             ; -0.0211 V          ; 0.167 V                             ; 0.222 V                             ; 6.23e-10 s                 ; 5.31e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[10]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.85e-08 V                   ; 2.31 V              ; -0.02 V             ; 0.158 V                              ; 0.194 V                              ; 6.14e-10 s                  ; 5.09e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.85e-08 V                  ; 2.31 V             ; -0.02 V            ; 0.158 V                             ; 0.194 V                             ; 6.14e-10 s                 ; 5.09e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[11]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.84e-08 V                   ; 2.31 V              ; -0.0211 V           ; 0.167 V                              ; 0.222 V                              ; 6.23e-10 s                  ; 5.31e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.84e-08 V                  ; 2.31 V             ; -0.0211 V          ; 0.167 V                             ; 0.222 V                             ; 6.23e-10 s                 ; 5.31e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[12]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.84e-08 V                   ; 2.31 V              ; -0.0211 V           ; 0.167 V                              ; 0.222 V                              ; 6.23e-10 s                  ; 5.31e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.84e-08 V                  ; 2.31 V             ; -0.0211 V          ; 0.167 V                             ; 0.222 V                             ; 6.23e-10 s                 ; 5.31e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[13]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.85e-08 V                   ; 2.31 V              ; -0.02 V             ; 0.158 V                              ; 0.194 V                              ; 6.14e-10 s                  ; 5.09e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.85e-08 V                  ; 2.31 V             ; -0.02 V            ; 0.158 V                             ; 0.194 V                             ; 6.14e-10 s                 ; 5.09e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[14]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.84e-08 V                   ; 2.31 V              ; -0.0211 V           ; 0.167 V                              ; 0.222 V                              ; 6.23e-10 s                  ; 5.31e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.84e-08 V                  ; 2.31 V             ; -0.0211 V          ; 0.167 V                             ; 0.222 V                             ; 6.23e-10 s                 ; 5.31e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[15]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 3.85e-08 V                   ; 2.31 V              ; -0.02 V             ; 0.158 V                              ; 0.194 V                              ; 6.14e-10 s                  ; 5.09e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 3.85e-08 V                  ; 2.31 V             ; -0.02 V            ; 0.158 V                             ; 0.194 V                             ; 6.14e-10 s                 ; 5.09e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 4.52e-08 V                   ; 2.31 V              ; -0.015 V            ; 0.216 V                              ; 0.188 V                              ; 5.24e-10 s                  ; 6.27e-10 s                  ; No                         ; Yes                        ; 2.28 V                      ; 4.52e-08 V                  ; 2.31 V             ; -0.015 V           ; 0.216 V                             ; 0.188 V                             ; 5.24e-10 s                 ; 6.27e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 900mv 100c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; done          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00737 V          ; 0.113 V                              ; 0.1 V                                ; 7.57e-10 s                  ; 7.31e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00737 V         ; 0.113 V                             ; 0.1 V                               ; 7.57e-10 s                 ; 7.31e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[0]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00737 V          ; 0.113 V                              ; 0.1 V                                ; 7.57e-10 s                  ; 7.31e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00737 V         ; 0.113 V                             ; 0.1 V                               ; 7.57e-10 s                 ; 7.31e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[1]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00786 V          ; 0.122 V                              ; 0.113 V                              ; 7.7e-10 s                   ; 7.46e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00786 V         ; 0.122 V                             ; 0.113 V                             ; 7.7e-10 s                  ; 7.46e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[2]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00737 V          ; 0.113 V                              ; 0.1 V                                ; 7.57e-10 s                  ; 7.31e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00737 V         ; 0.113 V                             ; 0.1 V                               ; 7.57e-10 s                 ; 7.31e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[3]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00786 V          ; 0.122 V                              ; 0.113 V                              ; 7.7e-10 s                   ; 7.46e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00786 V         ; 0.122 V                             ; 0.113 V                             ; 7.7e-10 s                  ; 7.46e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[4]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00786 V          ; 0.122 V                              ; 0.113 V                              ; 7.7e-10 s                   ; 7.46e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00786 V         ; 0.122 V                             ; 0.113 V                             ; 7.7e-10 s                  ; 7.46e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[5]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00786 V          ; 0.122 V                              ; 0.113 V                              ; 7.7e-10 s                   ; 7.46e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00786 V         ; 0.122 V                             ; 0.113 V                             ; 7.7e-10 s                  ; 7.46e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[6]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00786 V          ; 0.122 V                              ; 0.113 V                              ; 7.7e-10 s                   ; 7.46e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00786 V         ; 0.122 V                             ; 0.113 V                             ; 7.7e-10 s                  ; 7.46e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[7]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00737 V          ; 0.113 V                              ; 0.1 V                                ; 7.57e-10 s                  ; 7.31e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00737 V         ; 0.113 V                             ; 0.1 V                               ; 7.57e-10 s                 ; 7.31e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[8]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00737 V          ; 0.113 V                              ; 0.1 V                                ; 7.57e-10 s                  ; 7.31e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00737 V         ; 0.113 V                             ; 0.1 V                               ; 7.57e-10 s                 ; 7.31e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[9]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00786 V          ; 0.122 V                              ; 0.113 V                              ; 7.7e-10 s                   ; 7.46e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00786 V         ; 0.122 V                             ; 0.113 V                             ; 7.7e-10 s                  ; 7.46e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[10]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00737 V          ; 0.113 V                              ; 0.1 V                                ; 7.57e-10 s                  ; 7.31e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00737 V         ; 0.113 V                             ; 0.1 V                               ; 7.57e-10 s                 ; 7.31e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[11]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00786 V          ; 0.122 V                              ; 0.113 V                              ; 7.7e-10 s                   ; 7.46e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00786 V         ; 0.122 V                             ; 0.113 V                             ; 7.7e-10 s                  ; 7.46e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[12]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00786 V          ; 0.122 V                              ; 0.113 V                              ; 7.7e-10 s                   ; 7.46e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00786 V         ; 0.122 V                             ; 0.113 V                             ; 7.7e-10 s                  ; 7.46e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[13]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00737 V          ; 0.113 V                              ; 0.1 V                                ; 7.57e-10 s                  ; 7.31e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00737 V         ; 0.113 V                             ; 0.1 V                               ; 7.57e-10 s                 ; 7.31e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[14]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00786 V          ; 0.122 V                              ; 0.113 V                              ; 7.7e-10 s                   ; 7.46e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00786 V         ; 0.122 V                             ; 0.113 V                             ; 7.7e-10 s                  ; 7.46e-10 s                 ; Yes                       ; Yes                       ;
+; fibo_out[15]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.45e-05 V                   ; 2.29 V              ; -0.00737 V          ; 0.113 V                              ; 0.1 V                                ; 7.57e-10 s                  ; 7.31e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.45e-05 V                  ; 2.29 V             ; -0.00737 V         ; 0.113 V                             ; 0.1 V                               ; 7.57e-10 s                 ; 7.31e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.28 V                       ; 2.89e-05 V                   ; 2.29 V              ; -0.00673 V          ; 0.141 V                              ; 0.078 V                              ; 7.18e-10 s                  ; 8.69e-10 s                  ; Yes                        ; Yes                        ; 2.28 V                      ; 2.89e-05 V                  ; 2.29 V             ; -0.00673 V         ; 0.141 V                             ; 0.078 V                             ; 7.18e-10 s                 ; 8.69e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 900mv n40c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; done          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.68e-08 V                   ; 2.68 V              ; -0.0394 V           ; 0.316 V                              ; 0.256 V                              ; 4.09e-10 s                  ; 3.98e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 7.68e-08 V                  ; 2.68 V             ; -0.0394 V          ; 0.316 V                             ; 0.256 V                             ; 4.09e-10 s                 ; 3.98e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[0]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.68e-08 V                   ; 2.68 V              ; -0.0394 V           ; 0.316 V                              ; 0.256 V                              ; 4.09e-10 s                  ; 3.98e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 7.68e-08 V                  ; 2.68 V             ; -0.0394 V          ; 0.316 V                             ; 0.256 V                             ; 4.09e-10 s                 ; 3.98e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[1]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.69e-08 V                   ; 2.68 V              ; -0.0427 V           ; 0.198 V                              ; 0.138 V                              ; 5.01e-10 s                  ; 4.77e-10 s                  ; No                         ; No                         ; 2.62 V                      ; 7.69e-08 V                  ; 2.68 V             ; -0.0427 V          ; 0.198 V                             ; 0.138 V                             ; 5.01e-10 s                 ; 4.77e-10 s                 ; No                        ; No                        ;
+; fibo_out[2]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.68e-08 V                   ; 2.68 V              ; -0.0394 V           ; 0.316 V                              ; 0.256 V                              ; 4.09e-10 s                  ; 3.98e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 7.68e-08 V                  ; 2.68 V             ; -0.0394 V          ; 0.316 V                             ; 0.256 V                             ; 4.09e-10 s                 ; 3.98e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[3]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.69e-08 V                   ; 2.68 V              ; -0.0427 V           ; 0.198 V                              ; 0.138 V                              ; 5.01e-10 s                  ; 4.77e-10 s                  ; No                         ; No                         ; 2.62 V                      ; 7.69e-08 V                  ; 2.68 V             ; -0.0427 V          ; 0.198 V                             ; 0.138 V                             ; 5.01e-10 s                 ; 4.77e-10 s                 ; No                        ; No                        ;
+; fibo_out[4]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.69e-08 V                   ; 2.68 V              ; -0.0427 V           ; 0.198 V                              ; 0.138 V                              ; 5.01e-10 s                  ; 4.77e-10 s                  ; No                         ; No                         ; 2.62 V                      ; 7.69e-08 V                  ; 2.68 V             ; -0.0427 V          ; 0.198 V                             ; 0.138 V                             ; 5.01e-10 s                 ; 4.77e-10 s                 ; No                        ; No                        ;
+; fibo_out[5]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.69e-08 V                   ; 2.68 V              ; -0.0427 V           ; 0.198 V                              ; 0.138 V                              ; 5.01e-10 s                  ; 4.77e-10 s                  ; No                         ; No                         ; 2.62 V                      ; 7.69e-08 V                  ; 2.68 V             ; -0.0427 V          ; 0.198 V                             ; 0.138 V                             ; 5.01e-10 s                 ; 4.77e-10 s                 ; No                        ; No                        ;
+; fibo_out[6]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.69e-08 V                   ; 2.68 V              ; -0.0427 V           ; 0.198 V                              ; 0.138 V                              ; 5.01e-10 s                  ; 4.77e-10 s                  ; No                         ; No                         ; 2.62 V                      ; 7.69e-08 V                  ; 2.68 V             ; -0.0427 V          ; 0.198 V                             ; 0.138 V                             ; 5.01e-10 s                 ; 4.77e-10 s                 ; No                        ; No                        ;
+; fibo_out[7]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.68e-08 V                   ; 2.68 V              ; -0.0394 V           ; 0.316 V                              ; 0.256 V                              ; 4.09e-10 s                  ; 3.98e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 7.68e-08 V                  ; 2.68 V             ; -0.0394 V          ; 0.316 V                             ; 0.256 V                             ; 4.09e-10 s                 ; 3.98e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[8]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.68e-08 V                   ; 2.68 V              ; -0.0394 V           ; 0.316 V                              ; 0.256 V                              ; 4.09e-10 s                  ; 3.98e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 7.68e-08 V                  ; 2.68 V             ; -0.0394 V          ; 0.316 V                             ; 0.256 V                             ; 4.09e-10 s                 ; 3.98e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[9]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.69e-08 V                   ; 2.68 V              ; -0.0427 V           ; 0.198 V                              ; 0.138 V                              ; 5.01e-10 s                  ; 4.77e-10 s                  ; No                         ; No                         ; 2.62 V                      ; 7.69e-08 V                  ; 2.68 V             ; -0.0427 V          ; 0.198 V                             ; 0.138 V                             ; 5.01e-10 s                 ; 4.77e-10 s                 ; No                        ; No                        ;
+; fibo_out[10]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.68e-08 V                   ; 2.68 V              ; -0.0394 V           ; 0.316 V                              ; 0.256 V                              ; 4.09e-10 s                  ; 3.98e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 7.68e-08 V                  ; 2.68 V             ; -0.0394 V          ; 0.316 V                             ; 0.256 V                             ; 4.09e-10 s                 ; 3.98e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[11]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.69e-08 V                   ; 2.68 V              ; -0.0427 V           ; 0.198 V                              ; 0.138 V                              ; 5.01e-10 s                  ; 4.77e-10 s                  ; No                         ; No                         ; 2.62 V                      ; 7.69e-08 V                  ; 2.68 V             ; -0.0427 V          ; 0.198 V                             ; 0.138 V                             ; 5.01e-10 s                 ; 4.77e-10 s                 ; No                        ; No                        ;
+; fibo_out[12]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.69e-08 V                   ; 2.68 V              ; -0.0427 V           ; 0.198 V                              ; 0.138 V                              ; 5.01e-10 s                  ; 4.77e-10 s                  ; No                         ; No                         ; 2.62 V                      ; 7.69e-08 V                  ; 2.68 V             ; -0.0427 V          ; 0.198 V                             ; 0.138 V                             ; 5.01e-10 s                 ; 4.77e-10 s                 ; No                        ; No                        ;
+; fibo_out[13]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.68e-08 V                   ; 2.68 V              ; -0.0394 V           ; 0.316 V                              ; 0.256 V                              ; 4.09e-10 s                  ; 3.98e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 7.68e-08 V                  ; 2.68 V             ; -0.0394 V          ; 0.316 V                             ; 0.256 V                             ; 4.09e-10 s                 ; 3.98e-10 s                 ; No                        ; Yes                       ;
+; fibo_out[14]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.69e-08 V                   ; 2.68 V              ; -0.0427 V           ; 0.198 V                              ; 0.138 V                              ; 5.01e-10 s                  ; 4.77e-10 s                  ; No                         ; No                         ; 2.62 V                      ; 7.69e-08 V                  ; 2.68 V             ; -0.0427 V          ; 0.198 V                             ; 0.138 V                             ; 5.01e-10 s                 ; 4.77e-10 s                 ; No                        ; No                        ;
+; fibo_out[15]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 7.68e-08 V                   ; 2.68 V              ; -0.0394 V           ; 0.316 V                              ; 0.256 V                              ; 4.09e-10 s                  ; 3.98e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 7.68e-08 V                  ; 2.68 V             ; -0.0394 V          ; 0.316 V                             ; 0.256 V                             ; 4.09e-10 s                 ; 3.98e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.03e-08 V                   ; 2.68 V              ; -0.0326 V           ; 0.275 V                              ; 0.222 V                              ; 4e-10 s                     ; 5.06e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.03e-08 V                  ; 2.68 V             ; -0.0326 V          ; 0.275 V                             ; 0.222 V                             ; 4e-10 s                    ; 5.06e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 664      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 664      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 6     ; 6    ;
+; Unconstrained Input Port Paths  ; 191   ; 191  ;
+; Unconstrained Output Ports      ; 17    ; 17   ;
+; Unconstrained Output Port Paths ; 282   ; 282  ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Wed Apr 16 22:39:06 2014
+Info: Command: quartus_sta fib1 -c fib1
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is -40 degrees C
+Info (21077): High junction temperature is 100 degrees C
+Warning (335093): TimeQuest Timing Analyzer is analyzing 1 combinational loops as latches.
+Info (332104): Reading SDC File: 'fib1.out.sdc'
+Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: art_clk  from: dataf  to: combout
+Info (332152): The following assignments are ignored by the derive_clock_uncertainty command
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 900mV 100C Model
+Info (332146): Worst-case setup slack is 0.047
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.047               0.000 clk 
+Info (332146): Worst-case hold slack is 0.387
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.387               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case minimum pulse width slack is -1.886
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.886              -3.366 clk 
+    Info (332119):    -1.886              -1.886 reset_n 
+Info: Analyzing Slow 900mV -40C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: art_clk  from: dataf  to: combout
+Info (332152): The following assignments are ignored by the derive_clock_uncertainty command
+Info (332146): Worst-case setup slack is 0.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.000               0.000 clk 
+Info (332146): Worst-case hold slack is 0.374
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.374               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case minimum pulse width slack is -1.886
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.886              -3.366 clk 
+    Info (332119):    -1.886              -1.886 reset_n 
+Info: Analyzing Fast 900mV -40C Model
+Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: art_clk  from: dataf  to: combout
+Info (332152): The following assignments are ignored by the derive_clock_uncertainty command
+Info (332146): Worst-case setup slack is 1.143
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.143               0.000 clk 
+Info (332146): Worst-case hold slack is 0.158
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.158               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case minimum pulse width slack is -1.886
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.886             -10.050 clk 
+    Info (332119):    -1.886              -1.886 reset_n 
+Info (21077): Low junction temperature is -40 degrees C
+Info (21077): High junction temperature is 100 degrees C
+Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: art_clk  from: dataf  to: combout
+Info (332152): The following assignments are ignored by the derive_clock_uncertainty command
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 616 megabytes
+    Info: Processing ended: Wed Apr 16 22:39:11 2014
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:04
+
+
